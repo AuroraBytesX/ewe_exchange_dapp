@@ -192,14 +192,24 @@ const InsanityToggle = () => {
 
 // ✅ Final Page Component
 const Page = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <>
       <DefaultApp />
-      <FloatingThemeToggle />
-      <FloatingLiveTime />
-      <FortuneCookie />
-      <BrainrotMeter />
-      <InsanityToggle />
+      {mounted && (
+        <>
+          <FloatingThemeToggle />
+          <FloatingLiveTime />
+          <FortuneCookie />
+          <BrainrotMeter />
+          <InsanityToggle />
+        </>
+      )}
     </>
   );
 };
