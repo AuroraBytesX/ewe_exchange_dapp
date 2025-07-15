@@ -1,38 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 EWE Token Exchange DApp
 
-## Getting Started
+## ⭐ Project Description
+EWE Token Exchange is a sleek, embeddable decentralized application (DApp) that allows users to view and swap EWE tokens using ACONST tokens. It’s designed to be lightweight, user-friendly, and easily integrated anywhere.
 
-First, run the development server:
+## ⭐ Project Vision
+To make token swaps effortless, interactive, and accessible — all through an embeddable Web3 widget that anyone can plug into their own platforms.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## ⭐ Live Deployment
+🔗 [Live Demo on Vercel](https://ewe-exchange-dapp.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⭐ Embeddable Link (Andromeda)
+🌐 [Embeddable DApp Link](https://embeddables.testnet.andromedaprotocol.io/constantine-3/ewe-token-exchange-dapp)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## ⭐ Key Features
+- ⚡ Fast, lightweight & embeddable exchange widget  
+- 🔐 Wallet connection via Keplr  
+- 🎭 Light/Dark mode toggle  
+- ⏱️ Real-time clock display  
+- 🍪 Fun Fortune Cookie Easter Egg  
+- 🧠 Brainrot Meter & AURA Insanity Toggle  
+- 🔁 Instant token swap (EWE ↔ ACONST)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## ⭐ Future Scope
+- ✅ Multi-token support  
+- 📊 Real-time charts and market data  
+- 🧾 Enhanced swap history & receipts  
+- 📱 Mobile responsiveness  
+- 🌍 Multi-language support  
+- 🔒 Wallet security prompts & session timeout
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Licensing
-
-[Terms and Conditions](https://github.com/andromedaprotocol/andromeda-core/blob/development/LICENSE/LICENSE.md)
+🙏 **Thank you for checking out the EWE Token Exchange DApp!  hope you enjoy using it.**
