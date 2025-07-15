@@ -4,7 +4,7 @@
 EWE Token Exchange is a sleek, embeddable decentralized application (DApp) that allows users to view and swap EWE tokens using ACONST tokens. It’s designed to be lightweight, user-friendly, and easily integrated anywhere.
 
 ## ⭐ Project Vision
-To make token swaps effortless, interactive, and accessible — all through an embeddable Web3 widget that anyone can plug into their own platforms.
+To make token swaps effortless, interactive, and accessible all through an embeddable Web3 widget that anyone can plug into their own platforms.
 
 ## ⭐ Live Deployment
 🔗 [Live Demo on Vercel](https://ewe-exchange-dapp.vercel.app/)
