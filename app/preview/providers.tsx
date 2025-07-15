@@ -15,13 +15,20 @@ const Providers: FC<Props> = (props) => {
     const searchParams = useSearchParams();
     const chainId = searchParams.get('chain');
     const rawConfig = searchParams.get('config') as string;
+    const [mounted, setMounted] = useState(false);
     const [loaded, setLoaded] = useState(false);
 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     useLayoutEffect(() => {
-        const config: IConfig = parseEmbeddableUrl(rawConfig);
-        updateConfig(config);
-        setLoaded(true)
-    }, [rawConfig])
+        if (mounted) {
+            const config: IConfig = parseEmbeddableUrl(rawConfig);
+            updateConfig(config);
+            setLoaded(true);
+        }
+    }, [rawConfig, mounted])
 
     const isConnected = useAndromedaStore(state => state.isConnected)
     const isLoading = useAndromedaStore(state => state.isLoading)
@@ -29,19 +36,23 @@ const Providers: FC<Props> = (props) => {
     const connectedChainId = useAndromedaStore(state => state.chainId)
 
     useLayoutEffect(() => {
-        initiateKeplr();
-    }, []);
+        if (mounted) {
+            initiateKeplr();
+        }
+    }, [mounted]);
 
     useLayoutEffect(() => {
-        const autoconnect = localStorage.getItem(KEPLR_AUTOCONNECT_KEY);
-        if (!isLoading && typeof keplr !== "undefined" && autoconnect === keplr?.mode) {
-            if (!isConnected || (isConnected && (connectedChainId !== chainId))) {
-                connectAndromedaClient(chainId);
+        if (mounted) {
+            const autoconnect = localStorage.getItem(KEPLR_AUTOCONNECT_KEY);
+            if (!isLoading && typeof keplr !== "undefined" && autoconnect === keplr?.mode) {
+                if (!isConnected || (isConnected && (connectedChainId !== chainId))) {
+                    connectAndromedaClient(chainId);
+                }
             }
         }
-    }, [keplr, isConnected, isLoading, chainId]);
+    }, [keplr, isConnected, isLoading, chainId, mounted]);
 
-    if (!loaded) return null;
+    if (!mounted || !loaded) return null;
 
     return (
         <>
