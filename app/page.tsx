@@ -6,53 +6,21 @@ import {
   Box,
   Button,
   Text,
-  useColorMode,
   Center,
   Progress,
   VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 
-// 🌗 Dark/Light Mode Toggle (Floating)
-const FloatingThemeToggle = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <Box position="fixed" bottom="70px" right="20px" zIndex={999}>
-      <Button size="sm" onClick={toggleColorMode}>
-        {colorMode === "light" ? "🌙 Dark" : "☀️ Light"}
-      </Button>
-    </Box>
-  );
-};
+// Dynamically import components that use client-side only features
+const FloatingThemeToggle = dynamic(() => import('./components/FloatingThemeToggle'), {
+  ssr: false
+});
 
-// ⏰ Live Time (Floating)
-const FloatingLiveTime = () => {
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <Box
-      position="fixed"
-      bottom="30px"
-      right="20px"
-      bg="gray.100"
-      _dark={{ bg: "gray.700" }}
-      px={3}
-      py={1}
-      borderRadius="md"
-      fontSize="sm"
-      zIndex={999}
-    >
-      🕒 {time}
-    </Box>
-  );
-};
+const FloatingLiveTime = dynamic(() => import('./components/FloatingLiveTime'), {
+  ssr: false
+});
 
 // 🥠 Fortune Cookie (Not fixed, center of layout)
 const FortuneCookie = () => {
@@ -151,7 +119,7 @@ const BrainrotMeter = () => {
             {level < 30
               ? "😶 Mild brainrot"
               : level < 70
-              ? "😵‍💫 Brain buzzin’"
+              ? "😵‍💫 Brain buzzin'"
               : "🧨 MAXIMUM ROT"}
           </Text>
         </Box>
@@ -192,26 +160,16 @@ const InsanityToggle = () => {
 
 // ✅ Final Page Component
 const Page = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <>
       <DefaultApp />
-      {mounted && (
-        <>
-          <FloatingThemeToggle />
-          <FloatingLiveTime />
-          <FortuneCookie />
-          <BrainrotMeter />
-          <InsanityToggle />
-        </>
-      )}
+      <FloatingThemeToggle />
+      <FloatingLiveTime />
+      <FortuneCookie />
+      <BrainrotMeter />
+      <InsanityToggle />
     </>
   );
 };
 
-export default Page
+export default Page;
